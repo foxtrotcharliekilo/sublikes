@@ -1,20 +1,13 @@
 // ==UserScript==
-// @name           YouTube Auto-Liker
-// @name:zh        YouTube自動點讚
-// @name:ja        YouTubeのような自動
-// @namespace      https://github.com/HatScripts/youtube-auto-liker
-// @version        1.3.8
-// @description    Automatically likes videos of channels you're subscribed to
-// @description:zh 對您訂閲的頻道視頻自動點讚
-// @description:ja 購読しているチャンネルの動画が自動的に好きです
-// @description:ru Автоматически нравится видео каналов, на которые вы подписаны
-// @description:es Le gustan automáticamente los videos de los canales a los que está suscrito
-// @description:pt Gosta automaticamente de vídeos de canais nos quais você está inscrito
-// @author         HatScripts
+// @name           SubLikes by 0xt0b3r
+// @version        1.2.3
+// @description    กดไลค์วิดิโอช่องที่ติดตาม
+// @description:th กดไลค์วิดิโอช่องที่ติดตาม
+// @author         0xt0b3r
 // @license        MIT
-// @icon           https://raw.githubusercontent.com/HatScripts/youtube-auto-liker/master/logo.svg
-// @downloadurl    https://github.com/HatScripts/youtube-auto-liker/raw/master/youtube-auto-liker.user.js
-// @updateurl      https://github.com/HatScripts/youtube-auto-liker/raw/master/youtube-auto-liker.user.js
+// @icon           https://github.com/foxtrotcharliekilo/sublikes/blob/master/logo.svg
+// @downloadurl    https://github.com/foxtrotcharliekilo/sublikes/blob/master/ext.js
+// @updateurl      https://github.com/foxtrotcharliekilo/sublikes/blob/master/ext.js
 // @match          http://*.youtube.com/*
 // @match          https://*.youtube.com/*
 // @require        https://openuserjs.org/src/libs/sizzle/GM_config.js
@@ -38,14 +31,14 @@
         label: 'Debug mode',
         type: 'checkbox',
         default: false,
-        title: 'Log debug messages to the console'
+        title: 'บันทึกข้อมูลลงฐานข้อมูล'
       },
       CHECK_FREQUENCY: {
         label: 'Check frequency (ms)',
         type: 'number',
         min: 1,
         default: 5000,
-        title: 'The number of milliseconds to wait between checking if video should be liked'
+        title: 'ระยะเวลาที่ต้องการให้คอยเช็คสถานะไลค์ (เสี้ยววินาที)'
       },
       WATCH_THRESHOLD: {
         label: 'Watch threshold %',
@@ -53,18 +46,18 @@
         min: 0,
         max: 100,
         default: 50,
-        title: 'The percentage watched to like the video at'
+        title: 'เปอร์เซนต์ที่ต้องการให้ดูคลิปก่อนกดไลค์'
       },
       HIDE_LIKE_NOTIFICATION: {
-        label: 'Hide like notification',
+        label: 'ซ่อนการแจ้งเตือน',
         type: 'checkbox',
         default: false
       },
       LIKE_IF_NOT_SUBSCRIBED: {
-        label: 'Like if not subscribed',
+        label: 'กดไลค์ช่องที่ไม่ได้ติดตาม',
         type: 'checkbox',
         default: false,
-        title: 'Like videos from channels you are not subscribed to'
+        title: 'กดไลค์ช่องที่ไม่ติดตาม'
       }
     }
   })
